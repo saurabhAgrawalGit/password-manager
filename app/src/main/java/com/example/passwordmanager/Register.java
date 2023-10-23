@@ -42,6 +42,7 @@ public class Register extends AppCompatActivity {
                 mAuth = FirebaseAuth.getInstance();
           String email= user_email.getText().toString();
           String password= user_pass.getText().toString();
+                PasswordModel.setPas(password);
                 Toast.makeText(Register.this, email+" "+password, Toast.LENGTH_LONG).show();
 
                 mAuth.createUserWithEmailAndPassword(email, password)

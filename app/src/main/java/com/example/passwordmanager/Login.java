@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String email= user_email.getText().toString();
                 String pass= user_pass.getText().toString();
+                PasswordModel.setPas(pass);
                 mAuth.signInWithEmailAndPassword(email,pass)
                         .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                             @Override

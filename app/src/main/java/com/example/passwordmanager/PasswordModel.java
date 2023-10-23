@@ -4,12 +4,21 @@ public class PasswordModel {
 
     String name ;
     String pass;
+    static  String pas;
+
+
 
     public PasswordModel(String name, String pass) {
         this.name = name;
         this.pass = pass;
     }
+    public static String getPas(){
+        return pas;
+    }
 
+    public static void setPas(String pas) {
+        PasswordModel.pas = pas;
+    }
     public PasswordModel() {
     }
 

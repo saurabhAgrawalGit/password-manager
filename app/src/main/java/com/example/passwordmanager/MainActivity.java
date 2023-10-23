@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
      FloatingActionButton floatingActionButton;
      RecyclerView recyclerView;
+
      FirebaseAuth auth;
      FirebaseUser user;
      FirebaseDatabase firebaseDatabase;
