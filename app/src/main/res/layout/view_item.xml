@@ -4,37 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/black"
+    android:background="@drawable/back_for_itemview"
     android:layout_margin="5sp"
+
     >
 
     <TextView
+
         android:id="@+id/item_pass"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="24dp"
         android:text="Password"
-        android:textColor="#D5920F"
 
-        android:textSize="34sp"
+        android:textColor="#474554"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_name"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/see_password"
+
+
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
-        android:background="@color/black"
+        android:layout_marginBottom="16dp"
+        android:background="#00000000"
+        android:foregroundGravity="center"
+        android:scaleType="centerInside"
+
         android:src="@drawable/ic_baseline_remove_red_eye_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/item_pass">
+        app:layout_constraintBottom_toBottomOf="@+id/item_pass"
+        app:layout_constraintStart_toEndOf="@+id/item_pass"
+        app:layout_constraintTop_toTopOf="@+id/item_pass">
 
     </ImageButton>
 
@@ -42,11 +49,11 @@
         android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="name"
-        android:textColor="#043BAA"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="Name"
+        android:textColor="#474554"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

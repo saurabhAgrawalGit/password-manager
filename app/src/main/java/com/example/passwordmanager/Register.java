@@ -40,35 +40,47 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth = FirebaseAuth.getInstance();
-          String email= user_email.getText().toString();
-          String password= user_pass.getText().toString();
-                PasswordModel.setPas(password);
-                Toast.makeText(Register.this, email+" "+password, Toast.LENGTH_LONG).show();
+                String email= user_email.getText().toString();
+                String pass= user_pass.getText().toString();
+                if(email.isEmpty())
+                {
+                    Toast.makeText(Register.this, "Enter Your Email", Toast.LENGTH_SHORT).show();
+                }
+                else if(pass.isEmpty())
+                {
+                    Toast.makeText(Register.this, "Enter Your Master Password ", Toast.LENGTH_SHORT).show();
+                }
+                else if(!email.contains("@"))
+                {
+                    Toast.makeText(Register.this, "Enter Valid Email", Toast.LENGTH_SHORT).show();
+                }
+                else if(pass.length()<6)
+                {
+                    Toast.makeText(Register.this, "Enter Minimum word password", Toast.LENGTH_SHORT).show();
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                       .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
-                           @Override
-                          public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful())
-                            {
+                }
+                else {
 
-                                Log.d("sa", "createUserWithEmail:success");
-                                Toast.makeText(Register.this, "successful create", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent( getApplicationContext(),MainActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                            else {
-                                Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
 
-                            }
-                       }
-                }).addOnFailureListener(new OnFailureListener() {
-                             @Override
-                             public void onFailure(@NonNull Exception e) {
-                                 Toast.makeText(Register.this, e.toString(), Toast.LENGTH_SHORT).show();
-                             }
-                         });
+                    mAuth.createUserWithEmailAndPassword(email, pass)
+                            .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        PasswordModel.setPas(pass);
+                                        Log.d("sa", "createUserWithEmail:success");
+                                        Toast.makeText(Register.this, "successful create", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+                            });
+
+                }
             }
         });
 

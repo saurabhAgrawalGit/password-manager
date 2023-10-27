@@ -54,7 +54,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
         PasswordModel passwordModel = arrayList.get(position);
         holder.name.setText("Name :- "+passwordModel.getName());
-        holder.pass.setText("Password :- "+"*********");
+        holder.pass.setText("Password :- "+"*****");
+
+
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
